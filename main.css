@@ -1,0 +1,877 @@
+
+*{
+    margin: 0%;
+    padding: 0%;
+}
+
+body {
+    font-family: "Amatic SC", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 25px;
+    color: #fff;
+    line-height: 1.6;
+}
+
+*,
+*:before,
+*::after {
+    box-sizing: border-box;
+}
+
+/*Page*/
+
+.page {
+    overflow: hidden;
+}
+
+/*ширина границ контента*/
+
+.container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+/*header*/
+.header {
+    width: 100%;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    right: 0%;
+    z-index: 1000;
+}
+
+.header.fixed {
+    padding: 10px 0;
+    background-color: black;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .3);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    transform: translate3d(0, 0, 0);
+}
+
+.header.active {
+    background-color: black;
+}
+
+.header__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header__logo {
+    font-size: 50px;
+    font-weight: 700;
+    color: #fff;
+}
+
+/*nav*/
+nav {
+    font-size: 28px;
+    text-transform: uppercase;
+}
+
+nav.active {
+    display: block;
+}
+
+header nav ul {
+    list-style: none;
+}
+
+header nav ul li {
+    display: inline-block;
+}
+
+header nav ul li a {
+    vertical-align: top;
+    color: #fff;
+    margin: 0 5px;
+    text-decoration: none;
+}
+
+header nav ul li:not(.active):not(.btn) a:hover {
+    color:#ef5414
+}
+
+header nav ul li.btn a {
+    background: #ef5414;
+    padding: 5px 10px;
+    border-radius: 15px;
+    transition: all 500ms ease;
+}
+
+header nav ul li.btn a:hover {
+    background: #33691e;
+}
+
+header nav ul li.active a {
+    color:#ef5414
+}
+
+
+/*nav toggle*/
+.nav-toggle {
+    width: 30px;
+    padding: 10px 0;
+    display: none;
+    font-size: 0;
+    color: transparent;
+    border: 0;
+    background: none;
+    cursor: pointer;
+    position: absolute;
+    top: 29px;
+    right: 29px;
+    z-index: 1;
+}
+.nav-toggle__item {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: #fff;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+}
+
+.nav-toggle__item:before,
+.nav-toggle__item:after {
+    content:"";
+    width: 100%;
+    height: 3px;
+    background-color: #fff;
+    position: absolute;
+    left: 0;
+    z-index: 1;
+}
+
+.nav-toggle__item:before {
+    top: -8px;
+}
+
+.nav-toggle__item:after {
+    bottom: -8px;
+}
+
+.nav-toggle.active .nav-toggle__item {
+    background: none;
+}
+
+.nav-toggle.active .nav-toggle__item::before {
+    transform-origin: left top;
+    transform: rotate(45deg) translateX(-3px);
+}
+
+.nav-toggle.active .nav-toggle__item::after {
+    transform-origin: left bottom;
+    transform: rotate(-45deg) translateX(-3px);
+}
+
+/*Модальное окно входа*/
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1000; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0,0,0,0.5); 
+    color: black;
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 10% auto; 
+    padding: 20px;
+    padding-bottom: 70px;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 400px;
+    position: relative;
+    text-align: center;
+}
+.link-forgot {
+    display: flex;
+    justify-content: center; /* Распределение пространства между элементами */
+    margin-top: 10px; /* Отступ сверху для расстояния от формы */
+
+}
+
+.link-forgot a {
+    text-decoration: none;
+    color:#ef5414;
+}
+
+.modal form {
+    display: flex;
+    flex-direction: column; /* Расположение элементов в столбец */
+    gap: 5px; /* Промежуток между элементами */
+}
+
+.modal .btn {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 3px 10px;
+    background-color: rgba(239, 84, 20, 0.8);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-family: "Amatic SC", sans-serif;;
+    font-size: 30px;
+    transition: all 0.5s ease;
+}
+
+.modal .btn:hover {
+  background-color: #ef5414;
+}
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 60%;
+    padding: 5px;
+    margin: 0 auto;
+    border: 1px solid #ccc;
+    }
+
+.close {
+  color: #aaa;
+  position: absolute;
+  top: 0px;
+  right: 20px;
+  font-size: 30px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+/*intro*/
+
+.intro {
+    width: auto;
+    height: 100vh;
+    background-image: url("file:///C:/site/img/intro_3840.jpg");
+    -webkit-background-size: cover;
+    background-size: cover;
+    position: relative;
+    min-height: 600px;
+}
+
+.intro--info {
+    padding-top: 20%;
+    text-align: center
+}
+
+.intro--info h1 {
+    font-size: 50px;
+    font-weight: 700;
+}
+
+.intro--info p {
+    font-weight: 500;
+    line-height: 170%;
+    margin: 30px 0;
+}
+
+.intro--info .btn {
+    background: #ef5414;
+    font-family: "Amatic SC", sans-serif;
+    color: #fff;
+    font-size: 40px;
+    font-weight: 700;
+    padding: 5px 10px;
+    border: 0;
+    border-radius: 15px;
+    transition: all 500ms ease
+}
+
+.intro--info .btn:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+/*Секция Инфо*/
+
+.info {
+    background-color: black;
+    padding-top: 30px;
+}
+
+/*.see-all {
+    display: flex;
+    justify-content: center;
+}
+
+.info .see-all {
+    font-size: 40px;
+    font-weight: 700;
+    margin-top: 10%;
+    color: #fff;
+    background: #ef5414;
+    border-radius: 15px;
+    padding: 3px 5px;
+    text-align: center;
+    text-decoration: none;
+
+    align-items: center;
+    transition: all 500ms ease;
+}
+*/
+.info .see-all:hover {
+    transform: scale(1.1);
+}
+
+.info img {
+    width: 200px;
+}
+
+.info h1 {
+    margin-left:auto; /* заменено на auto для центрирования */
+    margin-right:auto;
+    font-size: 50px;
+    text-align: center
+}
+
+.info h3 {
+    font-size: 25px;
+}
+
+.info .info1,
+.info .info2 {
+    display: flex;
+    justify-content: center;
+    gap: 10%;
+    width: 100%;
+    padding-top:35px;
+}
+
+
+.info .info1 h3 {
+    display: block;
+    text-align: center;
+    margin-top: 10%;
+}
+
+.info .info2 h3 {
+    display: block;
+    text-align: center;
+    margin-top: 10%;
+}
+
+/* Start */
+
+.start {
+    background-image: url("file:///C:/site/img/start_3840.jpg");
+    width: auto;
+    background-size: cover;
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+.start .start1 {
+    display: flex;
+    justify-content: center;
+    gap: 10%;
+    width: 100%;
+}
+.start img {
+    width: 150px;
+}
+
+.start h1 {
+    font-size: 50px;
+    text-align: center;
+}
+
+.start h3 {
+    font-size: 25px;
+    text-align: center;
+}
+
+/* Блок с кнопками */
+.start .start1 {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    padding: 30px 0;
+}
+
+.start .start1 a {
+    display: block;
+    margin-top: 10%;
+    padding: 3px 7px;
+    font-size: 30px;
+    font-weight: 700;
+    color: #fff;
+    background-color: rgba(239, 84, 20, 0.5);
+    border-radius: 15px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.5s ease;
+}
+
+/* Ховер для кнопок */
+.start .start1 a:hover {
+    background-color: #ef5414;
+}
+
+/* Footer */
+.down {
+    clear: both;
+    background-color: black;
+    padding-bottom: 1%;
+}
+
+/* Контейнер для блоков и навигации */
+.down .blocks,
+.down nav {
+    display: flex;
+    align-items: center;
+}
+
+.down .blocks {
+    justify-content: center;
+}
+
+.down nav {
+    justify-content: center; 
+    margin: 10px 0; 
+    text-transform: uppercase; 
+}
+
+/* Список навигации */
+.down nav ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.down nav ul li {
+    display: inline-flex; 
+}
+
+.down nav ul li a {
+    color: #fff;
+    margin: 0 15px;
+        text-decoration: none;
+}
+
+/* Активные и неактивные пункты меню */
+.down nav ul li.active a,
+.down nav ul li:not(.active):not(.btn) a:hover {
+   color:#ef5414; 
+}
+
+/* Текст в футере */
+.down p {
+   text-align:center; 
+   margin:10px 0; 
+}
+
+/* Социальные иконки */
+.down .social-icons {
+   display:flex; 
+   justify-content:center; 
+   margin-top:10px; 
+}
+
+.down .social-icons a {
+   margin:0 10px; 
+}
+
+.down .social-icons img {
+   width:40px; 
+   border-radius:10px; 
+   transition:.5s transform;
+}
+
+.down .social-icons a:hover img {
+   transform : scale(1.2);
+}
+
+/* Логотип в футере */
+.down .down--logo {
+   font-size :50px ; 
+   font-weight :700 ; 
+   color:#fff ; 
+   margin :20px 0 ; 
+}
+
+/*2к+ моники*/
+@media (min-width: 2560px) {
+    .container {
+    width: 100%;
+    max-width: 2000px;
+    padding-top: 5px;
+    }
+    .header nav {
+    font-size: 50px;
+    }
+    .header__logo {
+    font-size: 100px;
+    }
+
+.modal {
+    font-size: 50px;
+}
+.modal-content {
+    padding-bottom: 100px;
+    max-width: 1000px;
+}
+.modal .btn {
+    font-size: 50px;
+}
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 60%;
+    padding: 10px;
+
+    }
+.close {
+  top: -25px;
+  right: 20px;
+  font-size: 70px;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.intro--info {
+    padding-top: 30%;
+    }
+.intro--info h1 {
+    font-size: 100px;
+    }
+.intro--info p {
+    font-size: 60px;
+    }
+.intro--info .btn {
+    font-size: 60px;
+    padding: 5px 10px;
+    }
+.info {
+    padding-bottom: 20px;
+    }
+.info h1{
+    font-size: 100px;
+    }
+.info h3 {
+    font-size: 60px;
+    }
+.info img {
+    width: 500px;
+    }
+.start h1 {
+    font-size: 100px;
+    }
+.start img {
+    width: 300px;
+    }
+.start .start1 a {
+    font-size: 60px;
+    }
+.down .down--logo{
+    font-size: 100px;
+    }
+.down nav {
+    font-size: 50px;
+    }
+.down .social-icons img {
+    width:80px; 
+    }
+.down p {
+    font-size: 50px;
+    }
+}
+
+
+/*Ноуты и средние моники*/
+
+@media (min-width: 992px) and (max-width: 1199px) {
+.header nav {
+    font-size: 28px;
+    }
+.header__logo {
+    font-size: 50px;
+    }
+.modal {
+    font-size: 30px;
+}
+.modal-content {
+    margin: 20% auto; 
+    padding-bottom: 70px;
+    max-width: 400px;
+}
+.modal .btn {
+    font-size: 30px;
+}
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    padding: 5px;
+    }
+.close {
+  top: -15px;
+  right: 20px;
+  font-size: 50px;
+}
+
+.intro--info {
+    padding-top: 30%;
+    }
+.intro--info .btn {
+    font-size: 30px;
+    padding: 5px 10px;
+    }
+.intro--info h1 {
+    font-size: 50px;
+    }
+.intro--info p {
+    font-size: 30px;
+    }
+.info {
+    padding-bottom: 20px;
+    }
+ .start h1 {
+    font-size: 50px;
+    }
+.start img {
+    width: 130px;
+    }
+.start .start1 a {
+    font-size: 28px;
+    }
+}
+
+/*Ноуты и маленькие моники*/
+
+@media (min-width: 768px) and (max-width: 991px) {
+.intro--info {
+    padding-top: 40%;
+    }
+.modal {
+    font-size: 30px;
+}
+.modal-content {
+    margin: 30% auto; 
+    padding-bottom: 70px;
+    max-width: 400px;
+}
+.modal .btn {
+    font-size: 30px;
+}
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    padding: 5px;
+    }
+.close {
+  top: -15px;
+  right: 20px;
+  font-size: 50px;
+}
+.start h1 {
+    font-size: 50px;
+    }
+.start img {
+    width: 130px;
+    }
+.start .start1 a {
+    font-size: 28px;
+    }
+}
+
+
+/*Телефоны с альбомной и планшеты с портретной ориентацией*/
+
+@media (min-width: 481px) and (max-width: 767px) {
+.nav {
+    display: none;
+    width: 40%;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    padding-bottom: 20px;
+    background-color: black;
+    border-radius: 10px;
+    }
+.nav li {
+    display: block;
+    font-size: 28px;
+    text-align: center;
+    margin: 0;
+    padding: 5px 20px;
+    }
+.nav-toggle {
+     display: block;
+    }
+.modal {
+    font-size: 30px;
+}
+.modal-content {
+    margin: 20% auto; 
+    padding-bottom: 70px;
+    max-width: 400px;
+}
+.modal .btn {
+    font-size: 30px;
+}
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    padding: 5px;
+    }
+.close {
+  top: -15px;
+  right: 20px;
+  font-size: 50px;
+}
+   .intro {
+    min-height: 470px;
+    }
+    .intro--info {
+    padding-top: 50%;
+    }
+    .info1,
+    .info2 {
+    flex-wrap: wrap;
+    }
+    .info .info1 h3,
+    .info .info2 h3 {
+    margin-top: 0px;
+    margin-bottom: 20px;
+    padding-top: 15px;
+    }
+    .start {
+    padding-top: 10%;
+    padding-bottom: 10%;
+    }
+    .start .start1 {
+    flex-wrap: wrap;
+    }
+    .start h1 {
+    font-size: 50px;
+    }
+    .start img {
+    width: 120px;
+    }
+    .start .start1 a {
+    font-size: 25px;
+    }
+    .down .menu,
+    .down--logo {
+    display: none;
+    }
+    .footer-content {
+    justify-content: center;
+    }
+}
+
+/*Телефоны с альбомной и c портретной ориентацией*/
+
+@media (max-width: 480px) {
+    .header__logo {
+    font-size: 45px;
+    }
+    .nav {
+    display: none;
+    width: 40%;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    padding-bottom: 20px;
+    background-color: black;
+    border-radius: 10px;
+    }
+    .nav li {
+    display: block;
+    font-size: 28px;
+    text-align: center;
+    margin: 0;
+    padding: 5px 20px;
+    }
+    .nav-toggle {
+     display: block;
+    }
+    .intro--info {
+    padding-top: 60%;
+    }
+    .intro--info h1 {
+    font-size: 35px;
+    }
+    .intro--info p {
+    font-size: 25px;
+    }
+    .intro--info .btn {
+    font-size: 25px;
+    padding: 5px 10px;
+    }
+    .info h1 {
+    font-size: 40px;
+    }
+    .info img {
+    width: 150px;
+    }
+    .info h3 {
+    font-size: 20px;
+    padding-bottom: 30px;
+    padding-top: 0px;
+    }
+    .info1,
+    .info2 {
+    flex-wrap: wrap;;
+    }
+    .info .info1 h3,
+    .info .info2 h3 {
+    margin-top: 0px;
+    padding-top: 15px;
+    font-size: 20px;
+    }
+   .start {
+    padding-top: 10%;
+    padding-bottom: 10%;
+    }
+    .start .start1 {
+    flex-wrap: wrap;
+    }
+    .start h1 {
+    font-size: 50px;
+    }
+    .start img {
+    width: 120px;
+    }
+    .start .start1 a {
+    font-size: 25px;
+    }
+    .down .menu,
+    .down--logo {
+    display: none;
+    }
+    .footer-content {
+    justify-content: center;
+    }
+}
