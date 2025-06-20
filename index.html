@@ -1,0 +1,171 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>OdRP</title>
+	<link rel="stylesheet" href="file:///C:/site/css/main.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+		<header class="header" id="header">
+			<div class="container">
+				<div class="header__inner">
+					<div class="header__logo">OdRP</div>
+			<nav class="nav" id="nav">
+				<ul>
+				<li class="active"><a href="#">Главная</a></li>
+				<li><a href="file:///C:/site/news.html">Новости</a></li>
+				<li><a href="file:///C:/site/info.html">Об Игре</a></li>
+				<li><a href="file:///C:/site/premium.html">Премиум</a></li>
+				<li><a href="#" id="openLoginModal">Вход</a></li> <!-- Кнопка "Вход" -->
+				<li class="btn"><a href="file:///C:/site/reg.html">Регистрация</a></li>
+				</ul>
+			</nav>
+			<button class="nav-toggle" id="nav_toggle" type="button">
+				<span class="nav-toggle__item">Menu</span>
+			</button>
+			</div>
+			</div>
+		</header>
+		
+<!-- Модальное окно для авторизации -->
+<div id="loginModal" class="modal">
+    <div class="modal-content">
+        <span class="close" id="closeLoginModal">&times;</span>
+        <h2>Авторизация</h2>
+        <form id="loginForm">
+            <label for="loginEmail">Email</label>
+            <input type="email" id="loginEmail" name="loginEmail" required>
+            
+            <label for="loginPassword">Пароль</label>
+            <input type="password" id="loginPassword" name="loginPassword" required>
+            
+            <button class="btn" type="submit">Войти</button>
+            <div class="error" id="loginErrorMessage"></div>
+        </form>
+        <p class="link-forgot"><a href="#" id="forgotPasswordLink">Забыли пароль?</a>
+		</p>
+    </div>
+</div>
+
+<!-- Модальное окно для напоминания пароля -->
+<div id="forgotPasswordModal" class="modal">
+    <div class="modal-content">
+        <span class="close" id="closeForgotPasswordModal">&times;</span>
+        <h2>Напоминание пароля</h2>
+        <form id="forgotPasswordForm">
+            <label for="forgotPasswordEmail">Введите ваш email</label>
+            <input type="email" id="forgotPasswordEmail" name="forgotPasswordEmail" required>
+            <button class="btn" type="submit">Напомнить пароль</button>
+            <div class="error" id="forgotPasswordErrorMessage"></div>
+        </form>
+    </div>
+</div>
+
+	
+<div class="page">
+
+	<div class="intro" id="intro">
+		<div class="container">
+			<div class="intro--info">
+				<h1>Погрузись в мир новых открытий</h1>
+				<p>OdRP предлагает уникальные RP приключения, которые погружают в мир фантазии и реализма. Попробуйте незабываемые впечатления уже сегодня!</p>
+				<button class="btn">Начать игру</button>
+			</div>
+		</div>
+	</div>
+	<div class="info">
+		<div class="container">
+			<h1>Об игре</h1>
+			<div class="info1">
+				<div class="block">
+					<img src="file:///C:/site/img/info1.jpg" alt="">
+					<h3>Уникальный RP опыт</h3>
+				</div>
+			<div class="block">
+					<img src="file:///C:/site/img/info1.jpg" alt="">
+					<h3>Разнообразие рас</h3>
+				</div>
+			<div class="block">
+					<img src="file:///C:/site/img/info1.jpg" alt="">
+					<h3>Большой выбор профессий</h3>
+				</div>
+			</div>
+			<div class="info2">
+				<div class="block">
+					<img src="file:///C:/site/img/info1.jpg" alt="">
+					<h3>Фракции</h3>
+				</div>
+				<div class="block">
+					<img src="file:///C:/site/img/info1.jpg" alt="">
+					<h3>Большая карта</h3>
+					<!--<a href="#" class="see-all">Подробнее</a>-->
+				</div>
+				<div class="block">
+					<img src="file:///C:/site/img/info1.jpg" alt="">
+					<h3>Множество подземелий</h3>
+				</div>
+				
+			</div>
+		
+		</div>
+	</div>
+	<div class="start">
+		<div class="container">
+			<h1>Как начать играть:</h1>
+			<div class="start1">
+				<div class="block">
+					<img src="file:///C:/site/img/logo_white.png" alt="">
+					<a href="#">Загрузить игру</a>
+				</div>
+			<div class="block">
+					<img src="file:///C:/site/img/logo_white.png" alt="">
+					<a href="file:///C:/site/reg.html">Создать аккаунт</a>
+				</div>
+			<div class="block">
+					<img src="file:///C:/site/img/logo_white.png" alt="">
+					<a href="#">Играть!</a>
+				</div>
+			</div>
+	</div>
+	</div>
+	<div class="down">
+		<div class="blocks container">
+				<div class="down--logo">OdRP</div>
+			<nav class="menu">
+				<ul>
+					<li class="active"><a href="#">Главная</a></li>
+					<li><a href="file:///C:/site/news.html">Новости</a></li>
+					<li><a href="file:///C:/site/info.html">Об Игре</a></li>
+					<li><a href="file:///C:/site/premium.html">Премиум</a></li>
+				</ul>
+			</nav>
+			<div class="social-icons">
+  				<a href="https://vk.com/odrpgame" target="_blank">
+    			<img src="file:///C:/site/img/vk.png" alt="VK">
+  				</a>
+  				<a href="https://discord.gg/5XrtnkdqkS" target="_blank">
+    			<img src="file:///C:/site/img/discord.png" alt="discord">
+  				</a>
+  				<a href=" https://t.me/odrpgame" target="_blank">
+    			<img src="file:///C:/site/img/telegram.png" alt="telegram">
+  				</a>
+			</div>
+		</div>
+		<hr>
+		<p>Copyright @ 2025 OdRP</p>
+	</div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="/site/js/app.js"></script>
+
+
+
+</body>
+</html>
